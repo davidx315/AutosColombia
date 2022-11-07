@@ -1,0 +1,92 @@
+﻿@model AutosColombia.ModeloDatos.ModeloUsuario.LoginAutosColombia
+@{
+    ViewBag.Title = "Login";
+}
+
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="es-co">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Autos Colombia - Portal</title>
+
+
+    <!-- Bootstrap -->
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link href="~/css/font-awesome.min.css" rel="stylesheet" />
+
+    <!-- Custom Theme Style -->
+    <link href="~/Content/Site.css" rel="stylesheet">
+    <link href="~/Content/custom.css" rel="stylesheet">
+
+</head>
+<body class="login">
+    <div>
+        <a class="hiddenanchor" id="signin"></a>
+        <div class="login_wrapper">
+            <div class="form login_form">
+                <div style="text-align:center; color:white">
+                    <h1>Autos Colombia</h1>
+                </div>
+                
+                <section class="login_content">
+                    @using (Html.BeginForm("ValidarUsuario", "Login", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { enctype = "multipart/form-data" }))
+                    {
+                        <h1>Ingrese Credenciales</h1>
+                        @Html.AntiForgeryToken()
+                        <div>
+                            @Html.EditorFor(model => model.username, new { htmlAttributes = new { @class = "form-control", placeholder = "Usuario", id = "username" } })
+                        </div>
+                        <div>
+                            @Html.PasswordFor(model => model.password, new { @class = "form-control", placeholder = "Password" })
+                        </div>
+                        <div>
+                            <button type="submit" class="btn btn-primary naranja-btn">Ingreso</button>
+                        </div>
+                        <div class="clearfix"></div>
+                        <div class="separator">
+                            <div class="clearfix"></div>
+                            <br />
+                            <div>
+                                <p class="blanco footer_login">&copy; @DateTime.UtcNow.AddHours(-5).Year - AUC (Autos Colombia)</p>
+                            </div>
+                        </div>
+                    }
+                </section>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap -->
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/custom.js"></script>
+
+    @*@{
+            Portal_Mensaje mensaje = ViewBag.mensaje;
+        }*@
+
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+
+        }
+            });
+
+    </script>
+
+    <script>
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,70 @@
+﻿
+@{
+    ViewBag.Title = "ConsultaVehiculos";
+}
+
+
+<h2>Consulta Vehiculos</h2>
+
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Registro Usuario", "RegistroUsuario", "Usuario")</li>
+                    <li>@Html.ActionLink("About", "About", "Home")</li>
+                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="col-md-12 col-sm-12">
+            <div class="panel panel-warning panel-etb">
+                <div class="panel-heading">
+                    Buscador
+                </div>
+                <div id="divBuscadorUsuarioReintento" class="panel-body">
+                    <div class="col-md-2">
+                        <input class="input-filter" id="NumeroDocumento" placeholder="Numero Documento" type="text" minlength="1" style="width:100%; height: 28px" />
+                    </div>
+                    <div class="col-md-2">
+                        <input class="input-filter" id="NumeroDocumento" placeholder="Placa Vehiculo" type="text" minlength="1" style="width:100%; height: 28px" />
+                    </div>
+                </div>
+                <br />
+                <div id="BtnBusqueda" class="panel-body">
+                    <div class="col-md-5">
+                        <button class="btn btn-danger" onclick="MostrarTablaConsultaReintentosBiometria()" id="btnbuscar"><span></span>&nbsp; Buscar </button>
+                        <button class="btn btn-danger" onclick="LimpiarDatosFiltroReintentoBiometria()" id="btnlimpiar"><span class="far"></span>&nbsp; Limpiar </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <table id="tblConsultaReintentosBiometria" class="table-striped table-bordered responsive" cellspacing="0" width="100%"></table>
+    </div>
+</body>
+
+
+
+@section Scripts {
+
+
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            initValidadoresInputsBiometria();
+        });
+
+    </script>
+}
+
