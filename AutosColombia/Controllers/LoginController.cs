@@ -18,10 +18,18 @@ namespace AutosColombia.Controllers
 
         public ActionResult ValidarUsuario(LoginAutosColombia login) {
 
-            
-            if (ManejadorUsuario.ObtenerInstancia.ConsultarPorDocumentoContraseña(login.username, login.password))
+            var usuario =  ManejadorUsuario.ObtenerInstancia.ConsultarPorDocumentoContraseña(login.username, login.password);
+
+            if (usuario != null)
             {
-                return View("../Administrador/RegistroUsuario");
+                if (usuario.Nombre_Rol.Equals("Administrador"))
+                {
+                    return View("../Administrador/RegistroUsuario");
+                }
+                else
+                {
+                    return View("../Clientes/GestionDatosCliente", usuario);
+                }
             }
             else
             {

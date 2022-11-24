@@ -17,7 +17,7 @@ namespace AutosColombia.Controllers
             return View("../Administrador/RegistroUsuario");
         }
 
-        public JsonResult CrearTramitesBiometria(Usuario usuario)
+        public ActionResult CrearUsuario(UsuariosRequest usuario)
         {
             Mensaje mensaje = new Mensaje();
             try
@@ -48,6 +48,24 @@ namespace AutosColombia.Controllers
                 mensaje = new Mensaje { Codigo = "", Mensaje_Generico = "El Tramite a Crear ya se encuntra en la coleccion MDM_TRAMITES_GESTION_BIOMETRIA" + "", Tipo = Mensaje_Tipo.ERROR }; //No se pudo realizar la carga del archivo
                 mensaje.Mensaje_Generico += " " + ex.Message;
                 return Json(mensaje, JsonRequestBehavior.AllowGet);
+            }
+        }
+
+        [HttpPost]
+        public ActionResult EditarDatosUsuario(UsuariosRequest usuario) {
+            Mensaje mensaje = new Mensaje();
+            try
+            {
+                var resultado = ManejadorUsuario.ObtenerInstancia.ModificarUsuario(usuario);
+                mensaje.Codigo = "001";
+                mensaje.Tipo = "SUCCESS";
+                mensaje.Mensaje_Generico = "Actualizacion exitosa";
+                return Json(mensaje, JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
             }
         }
     }

@@ -1,5 +1,6 @@
 ﻿using AutosColombia.Comunes.BaseDeDatos;
 using AutosColombia.ModeloDatos.ModeloUsuario;
+using AutosColombia.ModeloDatos.ModeloVehiculo;
 using MongoDB.Driver;
 using System;
 using System.Collections.Generic;
@@ -75,6 +76,33 @@ namespace AutosColombia.ServicioDatos.OperacionesDatos.Usuarios
             }
 
             return registro;
+        }
+
+
+        public bool ActualizarUsuario(Usuario usuario)
+        {
+            bool registro = false;
+            try
+            {
+                var document = MongoContext.Database().GetCollection<Usuario>("Usuario");
+
+                document.UpdateOne(
+                        Builders<Usuario>.Filter.Eq(c => c.Documento_Usuario, usuario.Documento_Usuario),
+                        Builders<Usuario>.Update
+                            .Set(x => x.Apellido_Usuario, usuario.Apellido_Usuario)
+                            .Set(x => x.Documento_Usuario, usuario.Documento_Usuario)
+                            .Set(x => x.Contraseña, usuario.Contraseña)
+                            .Set(x => x.Nombre_Rol, usuario.Nombre_Rol)
+                    );
+
+                registro = true;
+                return registro;
+            }
+            catch (Exception ex)
+            {
+                return registro;
+                throw ex;
+            }
         }
     }
 }

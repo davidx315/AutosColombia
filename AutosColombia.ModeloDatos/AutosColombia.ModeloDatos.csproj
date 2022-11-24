@@ -51,6 +51,8 @@
     <Compile Include="ModeloUsuario\LoginAutosColombia.cs" />
     <Compile Include="ModeloUsuario\Usuario.cs" />
     <Compile Include="ModeloUsuario\UsuarioRoles.cs" />
+    <Compile Include="ModeloUsuario\UsuariosRequest.cs" />
+    <Compile Include="ModeloVehiculo\GestionVehiculos.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

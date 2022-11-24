@@ -6,22 +6,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AutosColombia.ModeloDatos.ModeloUsuario
+namespace AutosColombia.ModeloDatos.ModeloVehiculo
 {
-    public class Usuario
+    public class GestionVehiculos
     {
         [BsonId]
         public ObjectId Id { get; set; }
-
+        public string Modelo_Vehiculo { get; set; }
         [BsonIgnoreIfNull]
-        public string Nombre_Usuario { get; set; }
-        [BsonIgnoreIfNull]
-        public string Apellido_Usuario { get; set; }
+        public string Placa { get; set; }
         [BsonIgnoreIfNull]
         public string Documento_Usuario { get; set; }
         [BsonIgnoreIfNull]
-        public string Contraseña { get; set; }
-        [BsonIgnoreIfNull]
-        public string Nombre_Rol { get; set; }
+        public int NumeroCelda { get; set; }
     }
 }

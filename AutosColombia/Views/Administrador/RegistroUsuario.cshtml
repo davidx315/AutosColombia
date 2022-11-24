@@ -1,4 +1,4 @@
-﻿@model AutosColombia.ModeloDatos.ModeloUsuario.Usuario
+﻿@model AutosColombia.ModeloDatos.ModeloUsuario.UsuariosRequest
 @{
     ViewBag.Title = "RegisConsultaVehiculotroUsuario";
     var consultaVehiculo = "ConsultaVehiculo";
@@ -26,7 +26,7 @@
         </div>
     </div>
     <br />
-    @using (Html.BeginForm("CrearTramitesBiometria", "Usuario", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    @using (Html.BeginForm("CrearUsuario", "Usuario", FormMethod.Post, new { enctype = "multipart/form-data" }))
     {
         @Html.AntiForgeryToken()
 
@@ -88,7 +88,7 @@
     <br />
     <br />
     <div class="modal-footer">
-        <input type="submit"  value="Crear Tramite" class="btn btn-danger" />
+        <input type="submit"  value="Crear Usuario" class="btn btn-danger" />
     </div>
 </div>
     }

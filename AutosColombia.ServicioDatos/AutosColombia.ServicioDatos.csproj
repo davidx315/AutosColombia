@@ -142,6 +142,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="OperacionesDatos\Usuarios\CrudUsuario.cs" />
+    <Compile Include="OperacionesDatos\Vehiculos\CrudVehiculos.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
