@@ -48,6 +48,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ModeloMensajes\Mensaje.cs" />
+    <Compile Include="ModelosGenerales\DataTableParameter.cs" />
     <Compile Include="ModeloUsuario\LoginAutosColombia.cs" />
     <Compile Include="ModeloUsuario\Usuario.cs" />
     <Compile Include="ModeloUsuario\UsuarioRoles.cs" />
